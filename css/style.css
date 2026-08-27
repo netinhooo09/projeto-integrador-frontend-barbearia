@@ -4,11 +4,11 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    color: #222;
+    color: #0c0c0c;
 }
 
 header {
-    background-color: #222;
+    background-color: #080808;
     color: white;
     text-align: center;
     padding: 30px;
@@ -19,7 +19,7 @@ header h1 {
 }
 
 nav {
-    background-color: #333;
+    background-color: #000000;
     padding: 15px;
 }
 
@@ -82,13 +82,13 @@ table {
 
 th,
 td {
-    border: 1px solid #333;
+    border: 1px solid #f8f4f4;
     padding: 10px;
     text-align: left;
 }
 
 th {
-    background-color: #333;
+    background-color: #020202;
     color: white;
 }
 
@@ -97,7 +97,7 @@ section a {
 }
 
 footer {
-    background-color: #222;
+    background-color: #f8f8f8;
     color: white;
     text-align: center;
     padding: 20px;
