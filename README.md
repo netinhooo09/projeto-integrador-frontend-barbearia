@@ -1,1 +1,2 @@
 # projeto-integrador-frontend-barbearia
+O projeto aplica corretamente a estrutura semântica básica (header, nav, main único, hierarquia de headings sem saltos) e o conteúdo está bem alinhado ao tema da barbearia. Porém, alguns pontos importantes das Aulas 3 e 4 ainda não foram atendidos: falta o elemento <footer>, não há nenhum formulário implementado (critério da Aula 3), e a seção de mídia possui apenas um formato de vídeo, sem fallback, preload ou poster, conforme pedido na Aula 4. e completar o README com a descrição do projeto.
