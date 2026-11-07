@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -5,30 +6,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="description" content="Conheça a Barbearia do Seu Zé, nossos serviços, preços e atendimento.">
+
     <title>Barbearia do Seu Zé</title>
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/logica.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
 
-    <header>
+    <header id="topo" class="cabecalho">
         <h1>Barbearia do Seu Zé</h1>
-
-        <p>
-            Tradição, estilo e qualidade em um só lugar.
-        </p>
+        <p>Tradição, estilo e qualidade em um só lugar.</p>
     </header>
 
-    <nav aria-label="Menu principal">
-        <ul>
+    <nav class="navbar" aria-label="Navegação principal">
+
+        <a href="#topo" class="logo">Seu Zé</a>
+
+        <button
+            class="menu-hamburguer"
+            id="botao-menu"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="lista-menu">
+
+            <span class="barra"></span>
+            <span class="barra"></span>
+            <span class="barra"></span>
+
+        </button>
+
+        <ul class="menu" id="lista-menu">
+
             <li>
-                <a href="#inicio">Início</a>
+                <a href="#inicio" class="ativo">Início</a>
+            </li>
+
+            <li class="tem-dropdown">
+                <a href="#servicos">Serviços</a>
+
+                <ul class="dropdown">
+                    <li><a href="#servicos">Cabelo</a></li>
+                    <li><a href="#servicos">Barba</a></li>
+                    <li><a href="#servicos">Combos</a></li>
+                </ul>
             </li>
 
             <li>
-                <a href="#servicos">Serviços</a>
+                <a href="#video">Vídeo</a>
             </li>
 
             <li>
@@ -36,115 +67,318 @@
             </li>
 
             <li>
+                <a href="#agendamento">Agendamento</a>
+            </li>
+
+            <li>
                 <a href="#contato">Contato</a>
             </li>
+
         </ul>
+
     </nav>
 
     <main>
-        
-        <section id="inicio">
 
-            <h2>Bem-vindo à Barbearia do Seu Zé</h2>
+        <section id="inicio" class="secao inicio">
+
+            <h2>Bem-vindo à Barbearia do Seu Zé!</h2>
 
             <p>
-                Aqui você encontra cortes de cabelo, barba e outros
-                serviços para cuidar do seu visual.
+                Aqui você encontra atendimento de qualidade,
+                profissionais experientes e muito cuidado com seu estilo.
             </p>
 
             <img
                 src="seu-ze.png"
-                alt="logo da Barbearia do Seu Zé"
-                style = "width: 800px; height: 600px";
-            >
+                alt="Imagem de apresentação da Barbearia do Seu Zé"
+                class="imagem-principal">
+
+            <h3>Nossos principais serviços</h3>
+
+            <ul class="lista-servicos">
+                <li>Corte de cabelo</li>
+                <li>Modelagem de barba</li>
+                <li>Corte e barba</li>
+            </ul>
 
         </section>
 
-        <h2>video da barberia do seu ze</h2>
+        <section id="video" class="secao">
 
-        <div>
-            <video controls style="width:30%";>
-                <source src="videoplayback (2).mp4" type="video/mp4">
+            <h2>Conheça nossa barbearia</h2>
+
+            <p>
+                Confira um pouco do ambiente e dos serviços oferecidos.
+            </p>
+
+            <video
+                id="video-barbearia"
+                controls
+                preload="metadata"
+                poster="seu-ze.png">
+
+                <source
+                    src="assets/videos/barbearia.webm"
+                    type="video/webm">
+
+                <source
+                    src="videoplayback (2).mp4"
+                    type="video/mp4">
+
+                <track
+                    kind="subtitles"
+                    src="assets/legendas/barbearia-pt.vtt"
+                    srclang="pt"
+                    label="Português"
+                    default>
+
+                <p>
+                    Seu navegador não suporta vídeos HTML5.
+                    <a href="videoplayback (2).mp4">
+                        Baixe o vídeo.
+                    </a>
+                </p>
+
             </video>
-        </div>
 
-        <section id="servicos">
+        </section>
+
+        <section id="servicos" class="secao">
 
             <h2>Nossos serviços</h2>
 
-            <ul>
-                <li>Corte de cabelo</li>
-                <li>Corte infantil</li>
-                <li>Barba</li>
-                <li>Bigode</li>
-            </ul>
+            <div class="servicos-container">
 
-            <h3>Preços</h3>
+                <article class="servico">
+                    <h3>Corte de cabelo</h3>
+                    <p>Cortes tradicionais e modernos.</p>
+                    <p class="preco">R$ 30,00</p>
+                </article>
+
+                <article class="servico">
+                    <h3>Barba</h3>
+                    <p>Aparação e modelagem da barba.</p>
+                    <p class="preco">R$ 20,00</p>
+                </article>
+
+                <article class="servico">
+                    <h3>Corte + Barba</h3>
+                    <p>Um cuidado completo para seu visual.</p>
+                    <p class="preco">R$ 45,00</p>
+                </article>
+
+                <article class="servico">
+                    <h3>Sobrancelha</h3>
+                    <p>Acabamento e cuidado com os detalhes.</p>
+                    <p class="preco">R$ 15,00</p>
+                </article>
+
+                <article class="servico">
+                    <h3>Hidratação</h3>
+                    <p>Tratamento e cuidado para os cabelos.</p>
+                    <p class="preco">R$ 40,00</p>
+                </article>
+
+            </div>
+
+            <h3 class="subtitulo">Tabela de preços</h3>
 
             <table>
-
                 <thead>
                     <tr>
                         <th>Serviço</th>
+                        <th>Descrição</th>
                         <th>Preço</th>
                     </tr>
                 </thead>
 
                 <tbody>
-
                     <tr>
                         <td>Corte de cabelo</td>
+                        <td>Corte tradicional ou moderno</td>
                         <td>R$ 30,00</td>
                     </tr>
 
                     <tr>
                         <td>Barba</td>
+                        <td>Aparação e acabamento</td>
                         <td>R$ 20,00</td>
                     </tr>
 
                     <tr>
                         <td>Corte + Barba</td>
+                        <td>Serviço completo</td>
                         <td>R$ 45,00</td>
                     </tr>
 
-                </tbody>
+                    <tr>
+                        <td>Sobrancelha</td>
+                        <td>Acabamento</td>
+                        <td>R$ 15,00</td>
+                    </tr>
 
+                    <tr>
+                        <td>Hidratação</td>
+                        <td>Tratamento capilar</td>
+                        <td>R$ 40,00</td>
+                    </tr>
+                </tbody>
             </table>
 
         </section>
 
+        <section id="sobre" class="secao">
 
-        <section id="sobre">
-
-            <h2>Sobre a Barbearia</h2>
+            <h2>Sobre nós</h2>
 
             <p>
-                A Barbearia do Seu Zé busca oferecer um atendimento
-                de qualidade, combinando tradição e estilo.
+                A Barbearia do Seu Zé nasceu com o objetivo de oferecer
+                um atendimento de qualidade, mantendo a tradição das
+                barbearias e acompanhando as tendências atuais.
+            </p>
+
+            <p>
+                Nosso compromisso é proporcionar um ambiente agradável,
+                serviços bem realizados e satisfação para nossos clientes.
             </p>
 
         </section>
 
+        <section id="agendamento" class="secao">
 
-        <section id="contato">
+            <h2>Agende seu atendimento</h2>
 
-            <h2>Contato</h2>
+            <form id="formulario">
 
-            <p>
-                Entre em contato conosco para conhecer nossos serviços.
+                <fieldset>
+                    <legend>Dados do cliente</legend>
+
+                    <label for="nome">Nome completo:</label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        minlength="3"
+                        maxlength="50"
+                        required>
+
+                    <label for="telefone">Telefone:</label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        placeholder="(83) 99999-9999"
+                        pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"
+                        required>
+
+                </fieldset>
+
+                <fieldset>
+                    <legend>Informações do atendimento</legend>
+
+                    <label for="servico">Escolha o serviço:</label>
+
+                    <select id="servico" name="servico" required>
+
+                        <option value="">Selecione</option>
+                        <option value="Corte de cabelo">Corte de cabelo</option>
+                        <option value="Barba">Barba</option>
+                        <option value="Corte + Barba">Corte + Barba</option>
+                        <option value="Sobrancelha">Sobrancelha</option>
+                        <option value="Hidratação">Hidratação</option>
+
+                    </select>
+
+                    <label for="data">Data desejada:</label>
+
+                    <input
+                        type="date"
+                        id="data"
+                        name="data"
+                        required>
+
+                </fieldset>
+
+                <button type="submit" class="botao">
+                    Enviar solicitação
+                </button>
+
+            </form>
+
+            <p id="mensagem" aria-live="polite"></p>
+
+            <p class="observacao">
+
             </p>
 
-            <a href="https://barbeariadoseuze.com.br/" target="_blank">
-                Saiba mais
-            </a>
+        </section>
+
+        <section id="resultado" class="secao">
+
+            <h2>Análise dos serviços</h2>
+
+            <p>
+                Confira uma análise dos serviços e seus valores,
+                realizada com JavaScript.
+            </p>
+
+            <button
+                type="button"
+                id="botao-resultado"
+                class="botao">
+
+                Mostrar análise
+
+            </button>
+
+            <button type="button" id="botao-logica" class="botao">
+                Executar análise de lógica
+            </button>
+
+            <div id="lista-resultados"></div>
+
+        </section>
+
+        <section id="contato" class="secao">
+
+            <h2>Entre em contato</h2>
+
+            <p>Venha conhecer nossa barbearia!</p>
+
+            <p>email:contato@barbeariadoseuze.com.br</p>
+
+            <p>Telefone: (11) 96460-4085</p>
+
+            <p>
+                Acesse o site oficial da barbearia:
+
+                <a
+                    href="https://barbeariadoseuze.com.br/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    clique aqui
+
+                </a>
+            </p>
 
         </section>
 
     </main>
 
-    <script src="js/main.js"></script>
+    <footer class="rodape">
+
+        <p>
+            &copy; <span id="ano"></span>
+            Barbearia do Seu Zé.
+        </p>
+
+        <p>Todos os direitos reservados.</p>
+
+    </footer>
 
 </body>
-
 </html>
-```

@@ -1,30 +1,47 @@
 
-/* Reset básico */
-
-* {
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
+
+/* Remove margens e espaçamentos padrões */
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
-img {
+/* Configuração de imagens e vídeos */
+
+img,
+video {
     max-width: 100%;
     display: block;
 }
 
-ul {
-    list-style: none;
+/* Elementos de formulário */
+
+button,
+input,
+select {
+    font: inherit;
 }
+
+/* Links */
 
 a {
     text-decoration: none;
 }
 
+/* Listas */
+
+ul,
+ol {
+    margin: 0;
+}
