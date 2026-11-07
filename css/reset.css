@@ -5,8 +5,6 @@
     box-sizing: border-box;
 }
 
-/* Remove margens e espaçamentos padrões */
-
 html {
     scroll-behavior: smooth;
 }
@@ -17,15 +15,11 @@ body {
     line-height: 1.6;
 }
 
-/* Configuração de imagens e vídeos */
-
 img,
 video {
     max-width: 100%;
     display: block;
 }
-
-/* Elementos de formulário */
 
 button,
 input,
@@ -33,13 +27,9 @@ select {
     font: inherit;
 }
 
-/* Links */
-
 a {
     text-decoration: none;
 }
-
-/* Listas */
 
 ul,
 ol {
