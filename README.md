@@ -39,12 +39,6 @@ utilizando conhecimentos de desenvolvimento Front-End.
 - assets/videos/: arquivos de vídeo.
 - assets/legendas/: arquivos de legenda.
 
-## Como executar
-
-1. Abra a pasta do projeto no Visual Studio Code.
-2. Confira se os arquivos estão nas pastas indicadas.
-3. Abra o arquivo index.html com o Live Server ou no navegador.
-
 ## Observação
 
 O formulário de agendamento é demonstrativo e não envia
