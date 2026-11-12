@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Conheça a Barbearia do Seu Zé, nossos serviços, preços e atendimento.">
 
     <title>Barbearia do Seu Zé</title>
@@ -15,6 +14,7 @@
 
     <script src="js/logica.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/aula12.js" defer></script>
 </head>
 
 <body>
@@ -39,7 +39,6 @@
             <span class="barra"></span>
             <span class="barra"></span>
             <span class="barra"></span>
-
         </button>
 
         <ul class="menu" id="lista-menu">
@@ -58,24 +57,13 @@
                 </ul>
             </li>
 
-            <li>
-                <a href="#video">Vídeo</a>
-            </li>
-
-            <li>
-                <a href="#sobre">Sobre</a>
-            </li>
-
-            <li>
-                <a href="#agendamento">Agendamento</a>
-            </li>
-
-            <li>
-                <a href="#contato">Contato</a>
-            </li>
+            <li><a href="#video">Vídeo</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#agendamento">Agendamento</a></li>
+            <li><a href="#gerenciar-servicos">Lista interativa</a></li>
+            <li><a href="#contato">Contato</a></li>
 
         </ul>
-
     </nav>
 
     <main>
@@ -282,14 +270,12 @@
                     <label for="servico">Escolha o serviço:</label>
 
                     <select id="servico" name="servico" required>
-
                         <option value="">Selecione</option>
                         <option value="Corte de cabelo">Corte de cabelo</option>
                         <option value="Barba">Barba</option>
                         <option value="Corte + Barba">Corte + Barba</option>
                         <option value="Sobrancelha">Sobrancelha</option>
                         <option value="Hidratação">Hidratação</option>
-
                     </select>
 
                     <label for="data">Data desejada:</label>
@@ -310,9 +296,7 @@
 
             <p id="mensagem" aria-live="polite"></p>
 
-            <p class="observacao">
-
-            </p>
+            <p class="observacao"></p>
 
         </section>
 
@@ -329,16 +313,94 @@
                 type="button"
                 id="botao-resultado"
                 class="botao">
-
                 Mostrar análise
-
             </button>
 
-            <button type="button" id="botao-logica" class="botao">
+            <button
+                type="button"
+                id="botao-logica"
+                class="botao">
                 Executar análise de lógica
             </button>
 
             <div id="lista-resultados"></div>
+
+        </section>
+
+        <section id="gerenciar-servicos" class="secao secao-servicos">
+
+            <h2>Lista interativa de serviços</h2>
+
+            <p>
+                Nesta parte, você pode pesquisar, selecionar
+                e adicionar serviços da Barbearia do Seu Zé.
+            </p>
+
+            <label for="buscar-servico">
+                Pesquisar serviço:
+            </label>
+
+            <input
+                type="search"
+                id="buscar-servico"
+                placeholder="Digite o nome do serviço">
+
+            <button
+                type="button"
+                id="alternar-lista"
+                class="botao"
+                aria-expanded="true"
+                aria-controls="painel-servicos">
+                Ocultar serviços
+            </button>
+
+            <div id="painel-servicos">
+
+                <h3>Serviços disponíveis</h3>
+
+                <ul id="lista-servicos"></ul>
+
+            </div>
+
+            <p
+                id="resumo-servicos"
+                aria-live="polite">
+                Carregando serviços...
+            </p>
+
+            <h3>Adicionar novo serviço</h3>
+
+            <form id="form-servico">
+
+                <label for="novo-servico">
+                    Nome do serviço:
+                </label>
+
+                <input
+                    type="text"
+                    id="novo-servico"
+                    name="novo-servico"
+                    placeholder="Ex.: Lavagem de cabelo"
+                    required>
+
+                <label for="preco-servico">
+                    Preço do serviço (R$):
+                </label>
+
+                <input
+                    type="number"
+                    id="preco-servico"
+                    name="preco-servico"
+                    min="0"
+                    step="0.01"
+                    placeholder="Ex.: 20.00"
+                    required>
+
+                <button type="submit" class="botao">
+                    Adicionar serviço
+                </button>
+
+            </form>
 
         </section>
 
@@ -359,9 +421,7 @@
                     href="https://barbeariadoseuze.com.br/"
                     target="_blank"
                     rel="noopener noreferrer">
-
                     clique aqui
-
                 </a>
             </p>
 
