@@ -35,3 +35,56 @@ ul,
 ol {
     margin: 0;
 }
+
+.secao-servicos {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.secao-servicos input {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.secao-servicos button {
+  padding: 0.7rem 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+}
+
+#lista-servicos {
+  list-style: none;
+  padding: 0;
+}
+
+.item-servico {
+  padding: 1rem;
+  margin: 0.6rem 0;
+  border: 1px solid #999;
+  border-radius: 0.5rem;
+}
+
+.item-servico.selecionado {
+  border: 2px solid #287a42;
+  background-color: #e4f5e8;
+  color: #183b24;
+}
+
+.item-servico button {
+  margin-left: 0.8rem;
+}
+
+#resumo-servicos {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+:focus-visible {
+  outline: 3px solid #1769aa;
+  outline-offset: 3px;
+}
+
