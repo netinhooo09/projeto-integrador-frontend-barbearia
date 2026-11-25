@@ -3,6 +3,7 @@ O projeto aplica corretamente a estrutura semântica básica (header, nav, main 
 
 
 
+
 # Barbearia do Seu Zé
 
 ## Sobre o projeto
@@ -27,6 +28,9 @@ utilizando conhecimentos de desenvolvimento Front-End.
 - Reprodução de vídeo com suporte a legendas.
 - Formulário demonstrativo de agendamento.
 - Análise de dados dos serviços utilizando JavaScript.
+- Pesquisa e seleção de serviços.
+- Adição de novos serviços.
+- Atualização automática da quantidade e do valor total.
 
 ## Estrutura do projeto
 
@@ -35,6 +39,7 @@ utilizando conhecimentos de desenvolvimento Front-End.
 - css/style.css: estilos visuais da página.
 - js/logica.js: lógica de programação e análise dos serviços.
 - js/script.js: funções, manipulação do DOM e interatividade.
+- js/aula12.js: eventos e lista interativa de serviços.
 - assets/images/: imagens utilizadas no projeto.
 - assets/videos/: arquivos de vídeo.
 - assets/legendas/: arquivos de legenda.
@@ -45,8 +50,40 @@ utilizando conhecimentos de desenvolvimento Front-End.
 2. Confira se os arquivos estão nas pastas indicadas.
 3. Abra o arquivo index.html com o Live Server ou no navegador.
 
+## Conteúdos aplicados nas aulas
+
+Durante o desenvolvimento do projeto, coloquei em prática
+os conteúdos estudados até a Aula 12.
+
+- Estrutura básica do HTML.
+- HTML semântico e acessibilidade.
+- Formulários e validação de campos.
+- Imagens, vídeos e legendas.
+- Estilização com CSS.
+- Flexbox e Grid.
+- Menu responsivo.
+- Lógica de programação com JavaScript.
+- Funções, arrays e manipulação do DOM.
+- Eventos e delegação de eventos.
+- Git, GitHub, branches e Pull Request.
+
+Na Aula 12, adicionei uma lista interativa que permite
+pesquisar, selecionar e cadastrar serviços, atualizando
+automaticamente a quantidade e o valor total.
+
+## Avaliações em pares
+
+### Primeira avaliação
+
+[Inserir a avaliação do primeiro colega.]
+
+### Segunda avaliação
+
+[Inserir a avaliação do segundo colega.]
+
 ## Observação
 
 O formulário de agendamento é demonstrativo e não envia
 informações para um servidor ou sistema de reservas.
+
 
