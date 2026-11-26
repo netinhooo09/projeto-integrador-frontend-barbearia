@@ -435,3 +435,47 @@ select:focus {
     }
 
 }
+
+#lista-servicos {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.item-servico {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f1e6d8;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.item-servico.selecionado {
+    background-color: #e1f0df;
+    border-color: #43834a;
+}
+
+.item-servico button[aria-pressed="true"] {
+    background-color: #43834a;
+}
+
+.item-servico button:focus-visible {
+    outline: 3px solid #b98042;
+    outline-offset: 3px;
+}
+
+#resumo-servicos {
+    font-weight: bold;
+    padding: 15px;
+    background-color: #f1e6d8;
+    border-radius: 8px;
+}
+
+#painel-servicos[hidden] {
+    display: none;
+}

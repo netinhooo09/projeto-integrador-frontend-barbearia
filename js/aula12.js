@@ -2,11 +2,11 @@
 (() => {
   // Dados principais dos serviços da barbearia
   const servicos = [
-    { id: 1, nome: "Corte masculino", preco: 25, selecionado: false },
-    { id: 2, nome: "Barba", preco: 15, selecionado: false },
-    { id: 3, nome: "Corte e barba", preco: 35, selecionado: false },
-    { id: 4, nome: "Sobrancelha", preco: 10, selecionado: false },
-    { id: 5, nome: "Pezinho", preco: 8, selecionado: false }
+    { id: 1, nome: "Corte de cabelo", preco: 30, selecionado: false },
+    { id: 2, nome: "Barba", preco: 20, selecionado: false },
+    { id: 3, nome: "Corte + Barba", preco: 45, selecionado: false },
+    { id: 4, nome: "Sobrancelha", preco: 15, selecionado: false },
+    { id: 5, nome: "Hidratação", preco: 40, selecionado: false }
   ];
 
   const lista = document.querySelector("#lista-servicos");
@@ -15,14 +15,23 @@
   const formulario = document.querySelector("#form-servico");
   const botaoPainel = document.querySelector("#alternar-lista");
   const painel = document.querySelector("#painel-servicos");
+  const nomeCampo = document.querySelector("#novo-servico");
+  const precoCampo = document.querySelector("#preco-servico");
+  const secao = document.querySelector("#gerenciar-servicos");
 
   if (!lista || !busca || !resumo || !formulario ||
-      !botaoPainel || !painel) {
+      !botaoPainel || !painel || !nomeCampo ||
+      !precoCampo || !secao) {
     console.error("Elementos da Aula 12 não encontrados.");
     return;
   }
 
-  // Cria um item da lista sem usar innerHTML
+  const moeda = new Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+  // Cria os itens sem utilizar innerHTML
   function criarItem(servico) {
     const item = document.createElement("li");
     item.classList.add("item-servico");
@@ -32,33 +41,42 @@
     }
 
     const descricao = document.createElement("span");
+
     descricao.textContent =
-      `${servico.nome} - R$ ${servico.preco.toFixed(2)}`;
+      `${servico.nome} - ${moeda.format(servico.preco)}`;
 
     const botao = document.createElement("button");
+
     botao.type = "button";
+    botao.classList.add("botao");
     botao.dataset.id = String(servico.id);
+
     botao.setAttribute(
       "aria-pressed",
       String(servico.selecionado)
     );
 
-    botao.textContent = servico.selecionado
-      ? "Cancelar seleção"
-      : "Selecionar";
+    botao.setAttribute(
+      "aria-label",
+      `Selecionar ${servico.nome}`
+    );
+
+    botao.textContent = "Selecionar";
 
     item.append(descricao, botao);
+
     return item;
   }
 
-  // Calcula os dados do resumo
-  function calcularResumo() {
-    const selecionados = servicos.filter(
+  // Função pura para calcular o resumo
+  function calcularResumo(dados) {
+    const selecionados = dados.filter(
       servico => servico.selecionado
     );
 
     const total = selecionados.reduce(
-      (soma, servico) => soma + servico.preco, 0
+      (soma, servico) => soma + servico.preco,
+      0
     );
 
     return {
@@ -68,15 +86,15 @@
   }
 
   function atualizarResumo(quantidadeVisivel) {
-    const dados = calcularResumo();
+    const dados = calcularResumo(servicos);
 
     resumo.textContent =
       `${quantidadeVisivel} serviço(s) encontrado(s). ` +
       `${dados.quantidade} selecionado(s). ` +
-      `Total: R$ ${dados.total.toFixed(2)}`;
+      `Total: ${moeda.format(dados.total)}`;
   }
 
-  // Atualiza a lista a partir dos dados
+  // Atualiza a lista com base nos dados
   function desenhar() {
     const termo = busca.value.trim().toLowerCase();
 
@@ -85,12 +103,13 @@
     );
 
     const itens = filtrados.map(criarItem);
+
     lista.replaceChildren(...itens);
 
     atualizarResumo(filtrados.length);
   }
 
-  // Delegação: um único evento para todos os itens
+  // Delegação de eventos
   function aoClicarNaLista(evento) {
     const botao = evento.target.closest("button[data-id]");
 
@@ -99,35 +118,46 @@
     }
 
     const id = Number(botao.dataset.id);
-    const servico = servicos.find(item => item.id === id);
+
+    const servico = servicos.find(
+      item => item.id === id
+    );
 
     if (!servico) {
       return;
     }
 
     servico.selecionado = !servico.selecionado;
+
     desenhar();
+
+    const novoBotao = lista.querySelector(
+      `button[data-id="${id}"]`
+    );
+
+    if (novoBotao) {
+      novoBotao.focus();
+    }
   }
 
   function aoPesquisar() {
     desenhar();
   }
 
+  // Adiciona novos serviços
   function aoAdicionar(evento) {
     evento.preventDefault();
-
-    const nomeCampo = document.querySelector("#novo-servico");
-    const precoCampo = document.querySelector("#preco-servico");
 
     const nome = nomeCampo.value.trim();
     const preco = Number(precoCampo.value);
 
-    if (!nome || !Number.isFinite(preco) || preco < 0) {
+    if (!nome || !Number.isFinite(preco) || preco <= 0) {
       alert("Informe um nome e um preço válido.");
       return;
     }
 
-    const novoId = Math.max(...servicos.map(s => s.id)) + 1;
+    const novoId =
+      Math.max(...servicos.map(s => s.id)) + 1;
 
     servicos.push({
       id: novoId,
@@ -138,26 +168,40 @@
 
     formulario.reset();
     busca.value = "";
+
+    abrirPainel();
     desenhar();
+
+    nomeCampo.focus();
+  }
+
+  function abrirPainel() {
+    painel.hidden = false;
+
+    botaoPainel.setAttribute(
+      "aria-expanded",
+      "true"
+    );
+
+    botaoPainel.textContent = "Ocultar serviços";
   }
 
   function fecharPainel() {
     painel.hidden = true;
-    botaoPainel.setAttribute("aria-expanded", "false");
+
+    botaoPainel.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
     botaoPainel.textContent = "Mostrar serviços";
   }
 
   function aoAlternarPainel() {
-    const aberto = botaoPainel.getAttribute(
-      "aria-expanded"
-    ) === "true";
-
-    if (aberto) {
-      fecharPainel();
+    if (painel.hidden) {
+      abrirPainel();
     } else {
-      painel.hidden = false;
-      botaoPainel.setAttribute("aria-expanded", "true");
-      botaoPainel.textContent = "Ocultar serviços";
+      fecharPainel();
     }
   }
 
@@ -168,13 +212,19 @@
     }
   }
 
+  // Registra os eventos uma única vez
   function iniciarAula12() {
     lista.addEventListener("click", aoClicarNaLista);
-    busca.addEventListener("input", aoPesquisar);
-    formulario.addEventListener("submit", aoAdicionar);
-    botaoPainel.addEventListener("click", aoAlternarPainel);
-    document.addEventListener("keydown", aoPressionarTecla);
 
+    busca.addEventListener("input", aoPesquisar);
+
+    formulario.addEventListener("submit", aoAdicionar);
+
+    botaoPainel.addEventListener("click", aoAlternarPainel);
+
+    secao.addEventListener("keydown", aoPressionarTecla);
+
+    abrirPainel();
     desenhar();
   }
 

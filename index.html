@@ -10,11 +10,13 @@
 
     <title>Barbearia do Seu Zé</title>
 
+    <link rel="icon" type="image/png" href="assets/images/seu-ze.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/logica.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/aula12.js" defer></script>
 </head>
 
 <body>
@@ -90,7 +92,7 @@
             </p>
 
             <img
-                src="seu-ze.png"
+                src="assets/images/seu-ze.png"
                 alt="Imagem de apresentação da Barbearia do Seu Zé"
                 class="imagem-principal">
 
@@ -116,14 +118,15 @@
                 id="video-barbearia"
                 controls
                 preload="metadata"
-                poster="seu-ze.png">
+                poster="assets/images/seu-ze.png">
 
                 <source
-                    src="assets/videos/barbearia.webm"
-                    type="video/webm">
+                    src="assets/videos/barbearia.mp4" 
+                    type="video/mp4">
+                    
 
                 <source
-                    src="videoplayback (2).mp4"
+                    src="assets/videos/barbearia.mp4"
                     type="video/mp4">
 
                 <track
@@ -135,7 +138,7 @@
 
                 <p>
                     Seu navegador não suporta vídeos HTML5.
-                    <a href="videoplayback (2).mp4">
+                    <a href="assets/videos/barbearia.mp4" download>
                         Baixe o vídeo.
                     </a>
                 </p>
@@ -341,6 +344,72 @@
             <div id="lista-resultados"></div>
 
         </section>
+        
+<section id="gerenciar-servicos" class="secao">
+
+    <h2>Serviços interativos</h2>
+
+    <p>Pesquise, selecione e adicione serviços da barbearia.</p>
+
+    <label for="buscar-servico">Pesquisar serviço:</label>
+
+    <input
+        type="search"
+        id="buscar-servico"
+        placeholder="Digite o nome do serviço">
+
+    <button
+        type="button"
+        id="alternar-lista"
+        class="botao"
+        aria-expanded="true"
+        aria-controls="painel-servicos">
+        Ocultar serviços
+    </button>
+
+    <div id="painel-servicos">
+
+        <ul id="lista-servicos"></ul>
+
+        <p id="resumo-servicos"
+           aria-live="polite"
+           aria-atomic="true"></p>
+
+    </div>
+
+    <h3>Adicionar novo serviço</h3>
+
+    <form id="form-servico">
+
+        <fieldset>
+
+            <legend>Informações do serviço</legend>
+
+            <label for="novo-servico">Nome do serviço:</label>
+
+            <input
+                type="text"
+                id="novo-servico"
+                required>
+
+            <label for="preco-servico">Preço:</label>
+
+            <input
+                type="number"
+                id="preco-servico"
+                min="0.01"
+                step="0.01"
+                required>
+
+            <button type="submit" class="botao">
+                Adicionar serviço
+            </button>
+
+        </fieldset>
+
+    </form>
+
+</section>
 
         <section id="contato" class="secao">
 
