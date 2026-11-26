@@ -5,10 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Conheça a Barbearia do Seu Zé, nossos serviços, preços e atendimento.">
 
     <title>Barbearia do Seu Zé</title>
 
+    <link rel="icon" type="image/png" href="assets/images/seu-ze.png">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
@@ -39,6 +41,7 @@
             <span class="barra"></span>
             <span class="barra"></span>
             <span class="barra"></span>
+
         </button>
 
         <ul class="menu" id="lista-menu">
@@ -57,13 +60,24 @@
                 </ul>
             </li>
 
-            <li><a href="#video">Vídeo</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-            <li><a href="#agendamento">Agendamento</a></li>
-            <li><a href="#gerenciar-servicos">Lista interativa</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li>
+                <a href="#video">Vídeo</a>
+            </li>
+
+            <li>
+                <a href="#sobre">Sobre</a>
+            </li>
+
+            <li>
+                <a href="#agendamento">Agendamento</a>
+            </li>
+
+            <li>
+                <a href="#contato">Contato</a>
+            </li>
 
         </ul>
+
     </nav>
 
     <main>
@@ -78,7 +92,7 @@
             </p>
 
             <img
-                src="seu-ze.png"
+                src="assets/images/seu-ze.png"
                 alt="Imagem de apresentação da Barbearia do Seu Zé"
                 class="imagem-principal">
 
@@ -104,14 +118,15 @@
                 id="video-barbearia"
                 controls
                 preload="metadata"
-                poster="seu-ze.png">
+                poster="assets/images/seu-ze.png">
 
                 <source
-                    src="assets/videos/barbearia.webm"
-                    type="video/webm">
+                    src="assets/videos/barbearia.mp4" 
+                    type="video/mp4">
+                    
 
                 <source
-                    src="videoplayback (2).mp4"
+                    src="assets/videos/barbearia.mp4"
                     type="video/mp4">
 
                 <track
@@ -123,7 +138,7 @@
 
                 <p>
                     Seu navegador não suporta vídeos HTML5.
-                    <a href="videoplayback (2).mp4">
+                    <a href="assets/videos/barbearia.mp4" download>
                         Baixe o vídeo.
                     </a>
                 </p>
@@ -270,12 +285,14 @@
                     <label for="servico">Escolha o serviço:</label>
 
                     <select id="servico" name="servico" required>
+
                         <option value="">Selecione</option>
                         <option value="Corte de cabelo">Corte de cabelo</option>
                         <option value="Barba">Barba</option>
                         <option value="Corte + Barba">Corte + Barba</option>
                         <option value="Sobrancelha">Sobrancelha</option>
                         <option value="Hidratação">Hidratação</option>
+
                     </select>
 
                     <label for="data">Data desejada:</label>
@@ -296,7 +313,9 @@
 
             <p id="mensagem" aria-live="polite"></p>
 
-            <p class="observacao"></p>
+            <p class="observacao">
+
+            </p>
 
         </section>
 
@@ -313,96 +332,84 @@
                 type="button"
                 id="botao-resultado"
                 class="botao">
+
                 Mostrar análise
+
             </button>
 
-            <button
-                type="button"
-                id="botao-logica"
-                class="botao">
+            <button type="button" id="botao-logica" class="botao">
                 Executar análise de lógica
             </button>
 
             <div id="lista-resultados"></div>
 
         </section>
+        
+<section id="gerenciar-servicos" class="secao">
 
-        <section id="gerenciar-servicos" class="secao secao-servicos">
+    <h2>Serviços interativos</h2>
 
-            <h2>Lista interativa de serviços</h2>
+    <p>Pesquise, selecione e adicione serviços da barbearia.</p>
 
-            <p>
-                Nesta parte, você pode pesquisar, selecionar
-                e adicionar serviços da Barbearia do Seu Zé.
-            </p>
+    <label for="buscar-servico">Pesquisar serviço:</label>
 
-            <label for="buscar-servico">
-                Pesquisar serviço:
-            </label>
+    <input
+        type="search"
+        id="buscar-servico"
+        placeholder="Digite o nome do serviço">
+
+    <button
+        type="button"
+        id="alternar-lista"
+        class="botao"
+        aria-expanded="true"
+        aria-controls="painel-servicos">
+        Ocultar serviços
+    </button>
+
+    <div id="painel-servicos">
+
+        <ul id="lista-servicos"></ul>
+
+        <p id="resumo-servicos"
+           aria-live="polite"
+           aria-atomic="true"></p>
+
+    </div>
+
+    <h3>Adicionar novo serviço</h3>
+
+    <form id="form-servico">
+
+        <fieldset>
+
+            <legend>Informações do serviço</legend>
+
+            <label for="novo-servico">Nome do serviço:</label>
 
             <input
-                type="search"
-                id="buscar-servico"
-                placeholder="Digite o nome do serviço">
+                type="text"
+                id="novo-servico"
+                required>
 
-            <button
-                type="button"
-                id="alternar-lista"
-                class="botao"
-                aria-expanded="true"
-                aria-controls="painel-servicos">
-                Ocultar serviços
+            <label for="preco-servico">Preço:</label>
+
+            <input
+                type="number"
+                id="preco-servico"
+                min="0.01"
+                step="0.01"
+                required>
+
+            <button type="submit" class="botao">
+                Adicionar serviço
             </button>
 
-            <div id="painel-servicos">
+        </fieldset>
 
-                <h3>Serviços disponíveis</h3>
+    </form>
 
-                <ul id="lista-servicos"></ul>
-
-            </div>
-
-            <p
-                id="resumo-servicos"
-                aria-live="polite">
-                Carregando serviços...
-            </p>
-
-            <h3>Adicionar novo serviço</h3>
-
-            <form id="form-servico">
-
-                <label for="novo-servico">
-                    Nome do serviço:
-                </label>
-
-                <input
-                    type="text"
-                    id="novo-servico"
-                    name="novo-servico"
-                    placeholder="Ex.: Lavagem de cabelo"
-                    required>
-
-                <label for="preco-servico">
-                    Preço do serviço (R$):
-                </label>
-
-                <input
-                    type="number"
-                    id="preco-servico"
-                    name="preco-servico"
-                    min="0"
-                    step="0.01"
-                    placeholder="Ex.: 20.00"
-                    required>
-
-                <button type="submit" class="botao">
-                    Adicionar serviço
-                </button>
-
-            </form>
-
-        </section>
+</section>
 
         <section id="contato" class="secao">
 
@@ -421,7 +428,9 @@
                     href="https://barbeariadoseuze.com.br/"
                     target="_blank"
                     rel="noopener noreferrer">
+
                     clique aqui
+
                 </a>
             </p>
 
